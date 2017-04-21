@@ -1,0 +1,69 @@
+﻿
+
+body { 
+    background: url(../images/RaceCars.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    /* Theoretically for IE 8 & 9 (more valid) */
+    /* ...but not required as filter works too */
+    /* should come BEFORE filter */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=95)"; 
+
+  /* This works in IE 8 & 9 too */
+  /* ... but also 5, 6, 7 */
+    filter: alpha(opacity=95); 
+  
+    /* Modern Browsers */
+    opacity: 0.95;
+}
+
+.race-car-driver #driver{
+    position: absolute;
+    top: 20px;
+    
+}
+
+.race-car-driver #headShot {
+    position: absolute;
+    top: 5px;
+    left: 140px;
+    height: 160px
+}
+
+.race-car-driver #leftArrow {
+    position: absolute;
+    top: 760px;
+    left: 14px;
+   
+}
+
+.race-car-driver #rightArrow {
+    position: absolute;
+    top: 760px;
+    left: 644px;
+}
+
+.race-car-driver #name {
+    position: absolute;
+    left: 300px;
+}
+.race-car-driver #factTable1 {
+    position: absolute;
+    width: 150px;
+    left: 300px;
+    top: 80px;
+
+  
+}
+
+.race-car-driver #factTable2{
+    position: absolute;
+
+    width: 150px;
+    left: 330px;
+    top: 280px;
+    
+}
