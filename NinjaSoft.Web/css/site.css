@@ -10,27 +10,36 @@ body {
     /* Theoretically for IE 8 & 9 (more valid) */
     /* ...but not required as filter works too */
     /* should come BEFORE filter */
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=95)"; 
+    /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";*/ 
 
   /* This works in IE 8 & 9 too */
   /* ... but also 5, 6, 7 */
-    filter: alpha(opacity=95); 
+    /*filter: alpha(opacity=95);*/ 
   
     /* Modern Browsers */
-    opacity: 0.95;
+    /*opacity: 0.95;*/
 }
 
-.race-car-driver #driver{
-    position: absolute;
-    top: 20px;
-    
+
+.race-car-driver  {
+    /* Theoretically for IE 8 & 9 (more valid) */
+    /* ...but not required as filter works too */
+    /* should come BEFORE filter */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; 
+
+    /* This works in IE 8 & 9 too */
+    /* ... but also 5, 6, 7 */
+    filter: alpha(opacity=100); 
+  
+    /* Modern Browsers */
+    opacity: 01.0;
 }
 
 .race-car-driver #headShot {
     position: absolute;
-    top: 5px;
-    left: 140px;
-    height: 160px
+    top: 7px;
+    left: 150px;
+    height: 135px
 }
 
 .race-car-driver #leftArrow {
