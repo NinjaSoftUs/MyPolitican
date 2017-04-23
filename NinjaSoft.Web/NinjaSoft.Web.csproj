@@ -308,8 +308,6 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include=".angular-cli.json" />
     <Content Include="KnowYourPolitician\.gitignore" />
-    <Content Include="KnowYourPolitician\app\app.component.js" />
-    <Content Include="KnowYourPolitician\app\app.module.js" />
     <Content Include="KnowYourPolitician\app\componets\blerb-component\blerb.component.css" />
     <Content Include="KnowYourPolitician\app\componets\blerb-component\blerb.component.html" />
     <Content Include="KnowYourPolitician\app\componets\blerb-component\blerb.component.js" />
@@ -327,8 +325,8 @@
     <Content Include="KnowYourPolitician\app\componets\nav-top\nav-top.component.css" />
     <Content Include="KnowYourPolitician\app\componets\nav-top\nav-top.component.html" />
     <Content Include="KnowYourPolitician\app\componets\nav-top\nav-top.component.js" />
-    <Content Include="KnowYourPolitician\app\index.js" />
-    <Content Include="KnowYourPolitician\app\main.js" />
+    <Content Include="KnowYourPolitician\app\componets\side-links\side-links.component.css" />
+    <Content Include="KnowYourPolitician\app\componets\side-links\side-links.component.html" />
     <Content Include="KnowYourPolitician\app\main\index.js" />
     <Content Include="KnowYourPolitician\app\main\main.component.css" />
     <Content Include="KnowYourPolitician\app\main\main.component.html" />
@@ -1450,21 +1448,21 @@
     <Content Include="KnowYourPolitician\images\TheMediumRectangle.png" />
     <Content Include="KnowYourPolitician\index.html" />
     <Content Include="KnowYourPolitician\systemjs.config.js" />
+    <Content Include="node_modules\fontawesome\generate.js" />
+    <Content Include="node_modules\fontawesome\index.js" />
     <Content Include="package.json" />
-    <Content Include="KnowYourPolitician\app\app.component.js.map" />
-    <Content Include="KnowYourPolitician\app\app.module.js.map" />
     <Content Include="KnowYourPolitician\app\componets\blerb-component\blerb.component.js.map" />
     <Content Include="KnowYourPolitician\app\componets\blerb-component\index.js.map" />
     <Content Include="KnowYourPolitician\app\componets\index.js.map" />
     <Content Include="KnowYourPolitician\app\componets\main-politican-view\main-politican-view.component.js.map" />
     <Content Include="KnowYourPolitician\app\componets\nav-top\nav-top.component.js.map" />
-    <Content Include="KnowYourPolitician\app\index.js.map" />
-    <Content Include="KnowYourPolitician\app\main.js.map" />
     <Content Include="KnowYourPolitician\app\main\index.js.map" />
     <Content Include="KnowYourPolitician\app\main\main.component.js.map" />
     <Content Include="KnowYourPolitician\package.json" />
     <Content Include="KnowYourPolitician\readme.MD" />
     <Content Include="KnowYourPolitician\tsconfig.json" />
+    <Content Include="node_modules\fontawesome\package.json" />
+    <Content Include="node_modules\fontawesome\README.md" />
     <None Include="Properties\PublishProfiles\ninjasoft.us - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ninjasoft.us - Web Deploy.pubxml" />
     <Content Include="protractor.conf.js" />
@@ -1551,10 +1549,15 @@
     <TypeScriptCompile Include="KnowYourPolitician\app\componets\left-side-nav\left-side-nav.component.ts" />
     <TypeScriptCompile Include="KnowYourPolitician\app\componets\main-politican-view\main-politican-view.component.ts" />
     <TypeScriptCompile Include="KnowYourPolitician\app\componets\nav-top\nav-top.component.ts" />
+    <TypeScriptCompile Include="KnowYourPolitician\app\componets\side-links\side-links.component.ts" />
     <TypeScriptCompile Include="KnowYourPolitician\app\index.ts" />
     <TypeScriptCompile Include="KnowYourPolitician\app\main.ts" />
     <TypeScriptCompile Include="KnowYourPolitician\app\main\index.ts" />
     <TypeScriptCompile Include="KnowYourPolitician\app\main\main.component.ts" />
+    <TypeScriptCompile Include="KnowYourPolitician\app\services\app.service.ts" />
+    <TypeScriptCompile Include="KnowYourPolitician\app\services\index.ts" />
+    <TypeScriptCompile Include="KnowYourPolitician\app\services\politician.model.ts" />
+    <TypeScriptCompile Include="KnowYourPolitician\app\services\toastr.service.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

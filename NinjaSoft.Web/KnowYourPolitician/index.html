@@ -1,65 +1,78 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Know Your Politician</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/bootswatch/cosmo/bootstrap.min.css">
+    <link rel="stylesheet" href="../Content/font-awesome.min.css">
 
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/cerulean/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/cosmo/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/cyborg/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/darkly/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/flatly/bootstrap.min.css">-->
+    <!-- <link rel="stylesheet" href="node_modules/bootswatch/journal/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/lumen/bootstrap.min.css">-->
+    <!-- <link rel="stylesheet" href="node_modules/bootswatch/paper/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/readable/bootstrap.min.css">-->
+    <link rel="stylesheet" href="node_modules/bootswatch/sandstone/bootstrap.min.css">
+
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/slate/bootstrap.min.css">-->
+     <!--<link rel="stylesheet" href="node_modules/bootswatch/spacelab/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/superhero/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/united/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootswatch/yeti/bootstrap.min.css">-->
     <link rel="stylesheet" href="css/styles.css">
-
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
-
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-    
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8602714965741430",
-              enable_page_level_ads: true
-          });
-      </script>
-      
 
-      <!--load anglular-->
-    <script src="systemjs.config.js"></script>  
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
-      System.import('app').catch(function(err){console.error(err);});
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8602714965741430",
+            enable_page_level_ads: true
+        });
     </script>
-  </head>
-  
-  <body>
-    <div class="container"> 
-    <app-main></app-main>
-    </div>
-  
-<footer>
-    <div class="container">
-   <div style="background-color: gray; margin-top: 10px;">
-   <div class="row">
-   <div class="col-md-3"><img  src="/images/ninja.png" style="height: 80px; margin-top:10px; margin-left:5px;"/>
-    <p><i class="glyphicon glyphicon-copyright-mark" style="margin:4px;"></i> 2017,  Ninja Soft LLC.</p>
-   </div>
- <div class="col-md-5"></div>
-   <div class="col-md-3" style="color:black; background-color: whitesmoke;margin: 10px;"> 
-           The data for this site is obtained from:<br /> 
-                <a target="new" href="https://www.opensecrets.org/">
-                   <img style="margin: 3px;" src="images/logo-46f659d5e4a7d0be2aeedd1c65c728c73ea26e7218a407d83cb4d3d9232b03c2.svg"/>
-                </a> 
-           
-   </div>
-    
-   </div>
-   </div>
-    </div>
-   </footer>
 
-  </body>
+    <!--load anglular-->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <app-main></app-main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="navbar navbar-default ">
+                <div style="margin-top: 10px;">
+                    <div class="row">
+                        <div class="col-md-3 text-success">
+                            <img src="/images/ninja.png" style="height: 80px; margin-top:10px; margin-left:5px;" />
+                            <p><i class="glyphicon glyphicon-copyright-mark" style="margin:4px;"></i> 2017,  Ninja Soft LLC.</p>
+                        </div>
+                        <div class="col-md-5"></div>
+                        <div class="col-md-3" style="color:black; background-color: whitesmoke;margin: 10px;">
+                            The data for this site is obtained from:<br />
+                            <a target="new" href="https://www.opensecrets.org/">
+                                <img style="margin: 3px;" src="images/logo-46f659d5e4a7d0be2aeedd1c65c728c73ea26e7218a407d83cb4d3d9232b03c2.svg" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>

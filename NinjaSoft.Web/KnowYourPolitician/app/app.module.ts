@@ -9,7 +9,8 @@ import {
   MainPoliticanViewComponent,
   BlerbComponent,
   ContributorsTableComponent,
-  IndustriesTableComponent
+  IndustriesTableComponent,
+  SideLinksComponent
  } from './index';
 
 @NgModule({
@@ -24,7 +25,8 @@ import {
     BlerbComponent,
     MainPoliticanViewComponent,
     ContributorsTableComponent,
-    IndustriesTableComponent
+    IndustriesTableComponent,
+    SideLinksComponent
     ],
     bootstrap:[MainComponent]
 })
