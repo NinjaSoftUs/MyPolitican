@@ -22,6 +22,7 @@ namespace NinjaSoft.Web.Controllers
         {
              _repo = new PoliticianRepository();
             _cancellationTokenSource = new CancellationTokenSource();
+            _token = _cancellationTokenSource.Token;
         }
 
         // GET api/<controller>
@@ -39,105 +40,109 @@ namespace NinjaSoft.Web.Controllers
         // POST api/<controller>
         public void Post([FromBody] string value)
         {
-         
 
-            _token = _cancellationTokenSource.Token;
-
-            //legislators synce
-            var getLegislatorsTask = new Task(() =>
+            if (!string.IsNullOrEmpty(value))
             {
-                var repo = new PoliticianRepository();
-                while (!_token.IsCancellationRequested)
-                {
-                    var list = OpenSecretsApi.GetPolitician();
-                    foreach (var politician in list)
-                    {
-                        repo.UpCertPolitician(politician);
-                    }
-                    Thread.Sleep(TimeSpan.FromDays(1));
-                }
-            }, _token);
 
-            //legislators Summary synce
-            var getCandSummaryTask = new Task(() =>
-            {
-                var repo = new PoliticianRepository();
-                while (!_token.IsCancellationRequested)
+                
+
+                //legislators synce
+                var getLegislatorsTask = new Task(() =>
                 {
-                    var cids = SyncronizationQue.LegislatorsQue;
-                    if (!cids.Any())
+                    var repo = new PoliticianRepository();
+                    while (!_token.IsCancellationRequested)
                     {
-                        foreach (var cid in repo.GetPoliticians().Select(x => x.Cid))
+                        var list = OpenSecretsApi.GetPolitician();
+                        foreach (var politician in list)
                         {
-                            Thread.Sleep(TimeSpan
-                                .FromMilliseconds(1)); //we need a delay so that the time stamp key will be uniqe
-                            SyncronizationQue.AddToCandSummaryQue(cid);
+                            repo.UpCertPolitician(politician);
                         }
+                        Thread.Sleep(TimeSpan.FromDays(1));
                     }
+                }, _token);
 
-                    foreach (var keyPair in SyncronizationQue.CandSummaryQue.ToList())
+                //legislators Summary synce
+                var getCandSummaryTask = new Task(() =>
+                {
+                    var repo = new PoliticianRepository();
+                    while (!_token.IsCancellationRequested)
                     {
-                        for (int i = 2012; i < DateTime.UtcNow.Year - 1; i++)
+                        var cids = SyncronizationQue.LegislatorsQue;
+                        if (!cids.Any())
                         {
-                            var summary = OpenSecretsApi.GetSummery(keyPair.Value.ToString(), i.ToString());
-                            if (summary != null)
+                            foreach (var cid in repo.GetPoliticians().Select(x => x.Cid))
                             {
-                                repo.UpCertSummary(summary);
-                                SyncronizationQue.DeleteFromCandSummaryQue(summary);
-                            }
-                            else
-                            {
-                                Console.WriteLine();
+                                Thread.Sleep(TimeSpan
+                                    .FromMilliseconds(1)); //we need a delay so that the time stamp key will be uniqe
+                                SyncronizationQue.AddToCandSummaryQue(cid);
                             }
                         }
-                    }
 
-                    Thread.Sleep(TimeSpan.FromDays(1.1));
-                }
-            }, _token);
-
-            //Candate Contribuiton tabe
-            var getCanContribTask = new Task(() =>
-            {
-              
-                while (!_token.IsCancellationRequested)
-                {
-                    var cids = SyncronizationQue.GetCandCntribeQue();
-                    if (!cids.Any())
-                    {
-                        cids = _repo.GetPoliticians().Select(x => x.Cid).ToList();
-                        foreach (var cid in cids)
+                        foreach (var keyPair in SyncronizationQue.CandSummaryQue.ToList())
                         {
-                            SyncronizationQue.AddToCandCntribeQue(cid);
-                        }
-                    }
-                    foreach (var cid in cids)
-                    {
-                        for (int i = 1990; i < DateTime.Now.Year - 1; i++)
-                        {
-                            if (!SyncronizationQue.ContribuitorsQueIsWaiting)
+                            for (int i = 2012; i < DateTime.UtcNow.Year - 1; i++)
                             {
-                                var contribList = OpenSecretsApi.GetCandContrib(cid, i.ToString());
-                                //var contribList = OpenSecretsApi.GetCandContrib(cid, "2016");
-                                foreach (var contributor in contribList.ToList())
+                                var summary = OpenSecretsApi.GetSummery(keyPair.Value.ToString(), i.ToString());
+                                if (summary != null)
                                 {
-                                    _repo.UpCertContributor(contributor);
-                                    SyncronizationQue.RemoveContributorFromQue(contributor);
+                                    repo.UpCertSummary(summary);
+                                    SyncronizationQue.DeleteFromCandSummaryQue(summary);
+                                }
+                                else
+                                {
+                                    Console.WriteLine();
                                 }
                             }
                         }
+
+                        Thread.Sleep(TimeSpan.FromDays(1.1));
                     }
-                    Thread.Sleep(TimeSpan.FromDays(1.3));
-                }
+                }, _token);
 
-                
-            }, _token);
+                //Candate Contribuiton tabe
+                var getCanContribTask = new Task(() =>
+                {
 
-            //  getLegislatorsTask.Start();
-            // getCandSummaryTask.Start();
-            getCanContribTask.Start();
+                    while (!_token.IsCancellationRequested)
+                    {
+                        var cids = SyncronizationQue.GetCandCntribeQue();
+                        if (!cids.Any())
+                        {
+                            cids = _repo.GetPoliticians().Select(x => x.Cid).ToList();
+                            foreach (var cid in cids)
+                            {
+                                SyncronizationQue.AddToCandCntribeQue(cid);
+                            }
+                        }
+                        foreach (var cid in cids)
+                        {
+                            for (int i = 1990; i < DateTime.Now.Year - 1; i++)
+                            {
+                                if (!SyncronizationQue.ContribuitorsQueIsWaiting)
+                                {
+                                    var contribList = OpenSecretsApi.GetCandContrib(cid, i.ToString());
+                                    //var contribList = OpenSecretsApi.GetCandContrib(cid, "2016");
+                                    foreach (var contributor in contribList.ToList())
+                                    {
+                                        _repo.UpCertContributor(contributor);
+                                        SyncronizationQue.RemoveContributorFromQue(contributor);
+                                    }
+                                }
+                            }
+                        }
+                        Thread.Sleep(TimeSpan.FromDays(1.3));
+                    }
 
-            _dbSyncIsRunning = true;
+
+                }, _token);
+
+                //  getLegislatorsTask.Start();
+                // getCandSummaryTask.Start();
+                getCanContribTask.Start();
+
+                _dbSyncIsRunning = true;
+            }
+            _cancellationTokenSource.Cancel();
         }
 
         // PUT api/<controller>/5

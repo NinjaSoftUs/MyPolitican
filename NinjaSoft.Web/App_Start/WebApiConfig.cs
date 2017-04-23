@@ -22,7 +22,8 @@ namespace NinjaSoft.Web
 
             config.Routes.MapHttpRoute(
                 name: "SyncDbApi",
-                routeTemplate: "api/dbsync/{start}"
+                routeTemplate: "api/dbsync/{value}",
+                defaults:new {value=RouteParameter.Optional}
              
             );
         }

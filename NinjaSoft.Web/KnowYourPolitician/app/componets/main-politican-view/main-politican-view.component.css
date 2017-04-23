@@ -1,0 +1,57 @@
+#politicainContent{
+ /* ...but not required as filter works too */
+    /* should come BEFORE filter */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+
+  /* This works in IE 8 & 9 too */
+  /* ... but also 5, 6, 7 */
+    filter: alpha(opacity=100);
+  
+    /* Modern Browsers */
+    opacity: 1.00;
+}
+#driver{
+     position: absolute;
+    top: -15px;
+    ;
+
+}
+#headShot{
+    position: absolute;
+    top: -15px;
+    left: 145px;
+    height: 145px;
+}
+
+#factTable1{
+     position: absolute;
+     top: 80px;
+     left: 350px;
+}
+
+#factTable2{
+    position: absolute;
+    top: 360px;
+    left: 350px;
+   
+}
+
+
+#factTable3{
+    position: relative;
+    left: 50px;
+    background-color: whitesmoke;
+}
+
+
+
+#leftArrow{
+      position: absolute;
+    top: 740px;
+    left: 20px;
+}
+#rightArrow{
+      position: absolute;
+    top: 740px;
+    left: 340px;
+}

@@ -12,6 +12,7 @@
     <!--<link rel="stylesheet" href="node_modules/bootswatch/cerulean/bootstrap.min.css" />-->
     <link rel="stylesheet" href="./Content/bootswatch/flatly/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
+    
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
@@ -20,90 +21,25 @@
             enable_page_level_ads: true
         });
     </script>
+    
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <!--anglaur stuff-->
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    
+
+    <script src="systemjs.config.js"></script>
+    <script>System.import('app').catch(function (err) { console.error(err) });
+    </script>
 
 </head>
 <body>
-<div class="container" style="background-color: white; height: 880px;">
-  
-    <div class="container">
-        <br />
-        <div id="menu" class="col-md-11 navbar navbar-default">
+<div class="container" >
+    <mypolitician-app></mypolitician-app>
 
-
-            <a href="."><span class="glyphicon glyphicon-chevron-down"></span>Know Your Policican</a>
-
-        </div>
-    </div>
-
-<section class="container hidden-md hidden-lg">
-    <!--carasole adds-->
-    <div class="row col-md-6 col-md-offset-2 col-sm-offset-0">
-       
-        <!--<img src="images/Leaderboard.png"/>-->
-    </div>
-   
-</section>
-
-<section class="container" >
-  
-    <div class="col-md-2">
-        <ul class="list-group" >
-            <li class="list-group-item"><a>Highest to Lowest</a></li>
-            <li class="list-group-item"><a>Republicans</a></li>
-            <li class="list-group-item"><a>Democrats</a></li>
-            <li class="list-group-item" ><a>Independants</a></li>
-        </ul>
-        <!--<img class="hidden-xs hidden-sm" src="images/skyscraper.png"/>-->
-    </div>
-    
-
-    <div class="col-md-8 race-car-driver">
-        
-        <h4 id="name">Meet Mitch McConnell Senator (R - KY)</h4>
-        <img id="driver" src="images/MyPolitician.png"/>
-        <img id="headShot" src="images/HeadShot/N00003389.png"/>
-        <i id="leftArrow" class="glyphicon glyphicon-arrow-left"></i>
-        <i id="rightArrow" class="glyphicon glyphicon-arrow-right"></i>
-
-        <div id="factTable1">
-
-            <img src="images/Chart1.png" style="width: 340px"/>
-        </div>
-
-        <div id="factTable2">
-            <img src="images/Chart2.png" style="width: 340px"/>
-        </div>
-
-    </div>
-    
-    
-
-    <div class="col-md-2">
-        <h3>Know your politician</h3>
-        <p>Do ever have doubts that your sensor or repetitive might not have your
-            best interest at heart? &nbsp; &nbsp; Well, this website might help you shed some lite on the subject.
-            The web page allows you to quickly serach, sort and filter politicians by donation
-            amount from corporations. </p>
-
-        <p>The data for this site is obtained and updated weekly from <span><a target="new" href="https://www.opensecrets.org/"><img style="margin: 3px;" src="images/logo-46f659d5e4a7d0be2aeedd1c65c728c73ea26e7218a407d83cb4d3d9232b03c2.svg"/></a> </span> 
-        </p>
-    </div>
-
-      
-  
-</section>   
-
-
-<footer class=" col-md-12"   >
-    
-    <div  style="height: 90px; background-color:darkslategrey; color: aliceblue; margin-top: 35px;">
-        <!-- <img src="images/leaderboard.png"/>-->
-        <p style="margin: 20px;">
-            <span class="glyphicon glyphicon-copyright-mark"></span> 2017, Ninja Soft, LLC
-        </p>
-
-    </div>
-</footer>
     </div>
 <script src="./Scripts/jquery-3.1.1.min.map"></script>
 <script src="./Scripts/bootstrap.min.js"></script>

@@ -11,7 +11,7 @@ namespace NinjaSoft.Web.Controllers
         public ActionResult Index()
         {
            // return View();
-            return Redirect("~/KnowYourPolitician.html");
+            return Redirect("~/KnowYourPolitician/");
         }
 
         public ActionResult About()
